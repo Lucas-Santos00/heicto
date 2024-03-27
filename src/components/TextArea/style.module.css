@@ -1,0 +1,51 @@
+/* DEFAULT STYLES */
+
+#TitleTextArea, #paragraph{
+    text-align: center;
+}
+
+#paragraph{
+    font-weight: 100;
+}
+
+/* LARGE SCREEN */
+@media screen and (min-width: 1200px){
+
+    #TitleTextArea, #paragraph{
+        text-align: left;
+    }
+    
+    #TitleTextArea{
+        font-size: 96px;
+    }
+
+    #paragraph{
+        font-size: 32px;
+    }
+}
+
+
+
+/* MEDDIUM SCREAN FONTS */
+@media screen and (max-width: 1199px){
+
+    #TitleTextArea{
+        font-size: 62px;
+    }
+
+    #paragraph{
+        font-size: 25px;
+    }
+
+}
+
+/* SMALL SCREENS */
+@media screen and (max-width: 400px){
+    #TitleTextArea{
+        font-size: 32px;
+    }
+    
+    #paragraph{
+        font-size: 17px;
+    }
+}
