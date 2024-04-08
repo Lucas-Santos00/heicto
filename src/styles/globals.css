@@ -46,7 +46,7 @@ strong{
 #container{
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 132px;
 }
 

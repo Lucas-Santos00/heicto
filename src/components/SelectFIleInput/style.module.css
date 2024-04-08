@@ -1,0 +1,108 @@
+.disable{
+    display: none;
+}
+
+.container{
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+}
+
+.container hr{
+    width: 85%;
+    padding: 0;
+    margin: 0;
+}
+
+.labelStyles{
+    flex-wrap: nowrap;
+    width: 100%;
+    display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    max-width: 438px;
+    padding: 28px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #0C0C0C;
+}
+
+.labelStyles img{
+    margin-right: 34px;
+}
+
+.labelStyles h4{
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    font-weight: 300;
+    margin-bottom: 6px;
+}
+
+.labelStyles p{
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.h3Title{
+    margin: 0;
+    padding: 0;
+    font-size: 32px;
+    font-weight: 100;
+    color: #0C0C0C;
+}
+
+.btnSender{
+    transition: all 0.4s;
+    font-size: 32px;
+    background-color: #872BFC;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #f3f3f3;
+    cursor: pointer;
+    padding: 18px 76px;
+}
+
+.btnSender:hover{
+    transition: all 0.4s;
+    background-color: #f3f3f3;
+    color: #872BFC;
+    border-color: #872BFC;
+}
+
+.termOfUse{
+    font-size: 16px;
+    color: #0C0C0C;
+    font-weight: 100;
+}
+
+.termOfUse a{
+    text-decoration: none;
+    color: #7000FF;
+}
+
+@media screen and (max-width: 500px) {
+    .container{
+        text-align: center;
+        padding: 5px;
+    }
+
+    .container h3{
+        font-size: 28px;
+    }
+
+    .labelStyles div{
+        text-align: left;
+    }
+
+    .btnSender{
+        font-size: 22px;
+    }
+
+    .termOfUse{
+        width: 90%;
+    }
+}

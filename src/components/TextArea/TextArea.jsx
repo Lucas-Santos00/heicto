@@ -1,7 +1,7 @@
 import { useOptions } from '@/context/OptionsContext'
 import styles from './style.module.css'
 
-export default _ => {
+export default function TextArea() {
 
     const {options, setOptions} = useOptions();
 

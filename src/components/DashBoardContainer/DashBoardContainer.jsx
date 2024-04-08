@@ -1,29 +1,31 @@
 import { useState } from 'react'
 import { useOptions } from '@/context/OptionsContext'
-import FileTypeToConvert from '../FileTypeToConvert/FileTypeToConvert'
+import BtnFileTypeToConvert from '../BtnFileTypeToConvert/BtnFileTypeToConvert'
 import OptionsProvider from '@/context/OptionsContext'
+import SelectFIleInput from '../SelectFIleInput/SelectFIleInput'
 
-export default props =>{
+export default function DashBoardContainer(props){
     
     const [isFileSelected, setIsFileSelected] = useState(false)
     const {options, setOptions} = useOptions();
-
-    console.log(options.convertTo)
+    
 
     return(
         <OptionsProvider>
             <div id={props.idProps}>
 
-                <FileTypeToConvert
+                <BtnFileTypeToConvert
                     isActived={''} 
                     provider={{options, setOptions}} 
                     btnValue='PNG'/>
 
-                <FileTypeToConvert 
+                <BtnFileTypeToConvert 
                     isActived={''} 
                     provider={{options, setOptions}} 
                     btnValue='JPG'/>
 
+                <SelectFIleInput/>
+            
             </div>
         </OptionsProvider>
     )
