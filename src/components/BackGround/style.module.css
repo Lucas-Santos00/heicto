@@ -1,0 +1,73 @@
+#vector1 svg{
+    position: absolute;
+        bottom: 190px;
+        left: 0;
+    z-index: -1;
+    width: 16.4vw;
+        max-width: 315px;
+        max-height: 303px;
+}
+
+#vector2 svg{
+    position: absolute;
+        bottom: 205px;
+        right: 0;
+    z-index: -1;
+    width: 15.6vw;
+        max-width: 326px;
+        max-height: 297px;
+}
+
+#vector3 svg{
+    position: absolute;
+        top: -130px;
+        right: 0;
+    z-index: -1;
+    width: 22.9vw;
+        max-width: 440px;
+        max-height: 299px;
+}
+
+#vector4 svg{
+    position: absolute;
+        top: 74px;
+        right: 39.1vw;
+    z-index: -1;
+    width: 13.2vw;
+        max-width: 250px;
+        max-height: 288px;
+}
+
+#vector5 svg{
+    position: absolute;
+        bottom: 434px;
+        right: 16.6vw;
+    z-index: -1;
+    width: 14.4vw;
+        max-width: 277px;
+        max-height: 227px;
+}
+
+@media (min-height: 1000px){
+    #vector4 svg{
+        top: 174px;
+    }
+}
+
+@media (min-width: 1900px){
+    
+    #vector4 svg{
+        right: 738px;
+    }
+
+    #vector5 svg{
+        right: 436px;
+    }
+    
+}
+
+@media (max-width: 580px){
+    .vector{
+        display: none;
+    }
+}

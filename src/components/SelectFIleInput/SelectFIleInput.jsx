@@ -3,24 +3,56 @@ import style from './style.module.css'
 
 export default function SendFileInput() {
 
+    //Contagem dos itens
     const [filesCount, setFilesCount] = useState(0)
 
+    //Select files by drop item
+    const [files, setFiles] = useState(null)
 
-      function handleFileChange(event){
-         const images = event.target.files
+    useEffect(() => {
+        
+        if (files !== null) {
+            setFilesCount(files.length);
+        }}, [files]);
 
-         setFilesCount(images.length)
+        const handleDragOver = event => event.preventDefault()
+    
+      const handleDrop = event => {
+            // Não permitir que o navegador abra a imagem.
+            event.preventDefault();
+            
+            // Agora você pode acessar os arquivos soltos
+            console.log(event.dataTransfer.files);
+
+            // Atualize o estado de 'files'
+            setFilesCount(event.dataTransfer.files.length);
+
+            console.log(event.dataTransfer.files.length)
+        }
+
+    //Quando selecionado os arquivos, 
+    //ele muda a propriedade filesCount com a quantidade de arquivos selecionados
+      function handleOnchange(event){
+         setFiles(event.target.files)
         }
 
     return(
         <>
-        <form className={style.container} method='POST'>
+        <form 
+            className={style.container} 
+            method='POST'>
 
-                <label className={style.labelStyles} htmlFor='form'>
+                <label 
+                    className={style.labelStyles} 
+                    htmlFor='form'
+                    onDragOver={handleDragOver}
+                    onDrop={handleDrop}>
+                    
                     <img src={
                         filesCount == 0 ? 'http://localhost:3000/AddIcon.svg' 
                         : 'http://localhost:3000/Emoji.svg'
                     } alt='Add icon'/>
+                    
                     <div>
                         <h4>Select files</h4>
                         <p>Or drop here</p>
@@ -31,20 +63,22 @@ export default function SendFileInput() {
                     multiple 
                     type='file' 
                     accept='image/heic' 
-                    onChange={handleFileChange} />
-
-                <hr/>
+                    onChange={handleOnchange} />
 
                 <h3 className={style.h3Title}>{
+                    //Verifica se já foi selecionado algum item
+                    //Caso sim, altera o texto
                     filesCount == 0 ? 'No files selected yet' 
                     : `${filesCount} files selected`
                 }</h3>
 
                 <button
                 className={style.btnSender} 
-                type='submit'>
-                    {filesCount == 0 ? 'Select files' 
-                    : 'Convert'
+                type='submit'
+                >{
+                    //Verifica se já foi selecionado algum item
+                    //Caso sim, altera o texto
+                    filesCount == 0 ? 'Select files' : 'Convert'
                 }</button>
 
                 <p className={style.termOfUse}>

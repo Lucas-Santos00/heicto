@@ -5,6 +5,10 @@ button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body{
+  overflow-x: hidden;
+  margin: 0 auto;
+  max-width: 1920px;
+  position: relative;
   background-color: #0C0C0C;
   color: #fff;
   font-family: "Inter", sans-serif;
@@ -12,7 +16,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 34px;
+  /* padding: 34px; */
 }
 
 h1{
@@ -24,9 +28,22 @@ strong{
   font-weight: 900;
 }
 
+/*Barra de rolagem*/
+::-webkit-scrollbar-track {
+    background-color: #ffffff;
+}
+::-webkit-scrollbar {
+    width: 4px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #872BFC;
+}
+
 /* ONLY FOR TESTS - REMOVE IT! */
 #adarea{
   width: 86vw;
+  max-width: 1648px;
   height: 139px;
   background-color: red;
   margin: auto;
@@ -83,5 +100,9 @@ strong{
   #dashBoard, #adarea{
     width: 90vw;
     min-width: 300px;
+  }
+
+  body{
+    background-image: none;
   }
 }
