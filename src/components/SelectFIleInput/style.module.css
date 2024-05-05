@@ -86,6 +86,16 @@
     color: #7000FF;
 }
 
+#disableBtn{
+    background-color: #929292;
+    cursor:not-allowed;
+}
+
+#disableBtn:hover{
+    color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
 @media screen and (max-width: 500px) {
     .container{
         text-align: center;
