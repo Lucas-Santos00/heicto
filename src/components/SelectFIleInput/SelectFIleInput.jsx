@@ -1,43 +1,74 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import style from './style.module.css'
+import validateData from '@/tools/validateData'
+import ErrorModal from '../ErrorModal/ErrorModal'
 
 export default function SendFileInput() {
-
-    //Contagem dos itens
-    const [filesCount, setFilesCount] = useState(0)
-
-    //Select files by drop item
-    const [files, setFiles] = useState(null)
-
-    useEffect(() => {
-        
-        if (files !== null) {
-            setFilesCount(files.length);
-        }}, [files]);
-
-        const handleDragOver = event => event.preventDefault()
     
-      const handleDrop = event => {
-            // Não permitir que o navegador abra a imagem.
-            event.preventDefault();
-            
-            // Agora você pode acessar os arquivos soltos
-            console.log(event.dataTransfer.files);
+    //Hook para gerenciar os estados
+   const [handleStates, setHandleStates] = useState({
+        files: [],
+        filesCount: 0,
+        isFileSelected: false
+   })
 
-            // Atualize o estado de 'files'
-            setFilesCount(event.dataTransfer.files.length);
+   const [sendError, setSendError] = useState(false)
 
-            console.log(event.dataTransfer.files.length)
-        }
+   //Valores do hook
+   const files = handleStates.files
+   const filesCount = handleStates.filesCount
+   const isFileSelected = handleStates.isFileSelected
 
-    //Quando selecionado os arquivos, 
-    //ele muda a propriedade filesCount com a quantidade de arquivos selecionados
-      function handleOnchange(event){
-         setFiles(event.target.files)
-        }
+   const handleDragOver = event => event.preventDefault()
+   const handleDrop = event => {
 
-    return(
+        event.preventDefault()
+
+        const dataEvent = event.dataTransfer.files
+
+        validateData(dataEvent)
+        .then( _ => { 
+
+            setHandleStates({
+                ...handleStates,
+                files: dataEvent,
+                filesCount: dataEvent.length,
+                isFileSelected: true
+            })
+
+         })
+        .catch( error => {
+            setSendError(true) 
+        })
+
+   }
+
+   const inputBtnHandle = event =>{
+
+        const dataEvent = event.target.files
+
+        validateData(dataEvent)
+        .then(_ => { 
+
+            setHandleStates({
+                ...handleStates,
+                files: dataEvent,
+                filesCount: dataEvent.length,
+                isFileSelected: true
+            })
+
+         })
+        .catch( error => {
+            setSendError(true) 
+        })
+    }
+
+   
+   return(
         <>
+
+        <ErrorModal sendError={sendError} />
+
         <form 
             className={style.container} 
             method='POST'>
@@ -49,7 +80,8 @@ export default function SendFileInput() {
                     onDrop={handleDrop}>
                     
                     <img src={
-                        filesCount == 0 ? 'http://localhost:3000/AddIcon.svg' 
+                        isFileSelected == false 
+                        ? 'http://localhost:3000/AddIcon.svg' 
                         : 'http://localhost:3000/Emoji.svg'
                     } alt='Add icon'/>
                     
@@ -63,23 +95,28 @@ export default function SendFileInput() {
                     multiple 
                     type='file' 
                     accept='image/heic' 
-                    onChange={handleOnchange} />
+                    onChange={inputBtnHandle} />
 
                 <h3 className={style.h3Title}>{
                     //Verifica se já foi selecionado algum item
                     //Caso sim, altera o texto
-                    filesCount == 0 ? 'No files selected yet' 
+                    isFileSelected == false
+                    ? 'No files selected yet' 
                     : `${filesCount} files selected`
                 }</h3>
 
                 <button
+                id={isFileSelected == false ? style.disableBtn : ''}
+                disabled={!isFileSelected}
                 className={style.btnSender} 
-                type='submit'
-                >{
+                type='submit'>{
                     //Verifica se já foi selecionado algum item
                     //Caso sim, altera o texto
-                    filesCount == 0 ? 'Select files' : 'Convert'
-                }</button>
+                    isFileSelected == false
+                    ? 'Select files' 
+                    : 'Convert'
+                    }
+                </button>
 
                 <p className={style.termOfUse}>
                     When you add the files, you accept the <a href='#'>terms of use</a> 
