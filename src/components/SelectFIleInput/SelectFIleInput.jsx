@@ -2,6 +2,7 @@ import { useState } from 'react'
 import style from './style.module.css'
 import validateData from '@/tools/validateData'
 import ErrorModal from '../ErrorModal/ErrorModal'
+import BtnSendForm from '../BtnSendForm/BtnSendForm'
 
 export default function SendFileInput() {
     
@@ -12,7 +13,10 @@ export default function SendFileInput() {
         isFileSelected: false
    })
 
-   const [sendError, setSendError] = useState(false)
+   const [sendError, setSendError] = useState({
+        errorActive: false,
+        message: ''
+   })
 
    //Valores do hook
    const files = handleStates.files
@@ -38,7 +42,7 @@ export default function SendFileInput() {
 
          })
         .catch( error => {
-            setSendError(true) 
+            setSendError(true)
         })
 
    }
@@ -59,15 +63,21 @@ export default function SendFileInput() {
 
          })
         .catch( error => {
-            setSendError(true) 
+            setSendError({
+                ...sendError,
+                errorActive: true,
+                message: error.message
+            })
         })
     }
 
+    const turnOffModal = _ =>{
+        setSendError(false)
+    }
    
    return(
         <>
-
-        <ErrorModal sendError={sendError} />
+        <ErrorModal turnOffModal={turnOffModal} sendError={sendError} />
 
         <form 
             className={style.container} 
@@ -105,21 +115,10 @@ export default function SendFileInput() {
                     : `${filesCount} files selected`
                 }</h3>
 
-                <button
-                id={isFileSelected == false ? style.disableBtn : ''}
-                disabled={!isFileSelected}
-                className={style.btnSender} 
-                type='submit'>{
-                    //Verifica se já foi selecionado algum item
-                    //Caso sim, altera o texto
-                    isFileSelected == false
-                    ? 'Select files' 
-                    : 'Convert'
-                    }
-                </button>
+                <BtnSendForm isFileSelected={isFileSelected} />
 
                 <p className={style.termOfUse}>
-                    When you add the files, you accept the <a href='#'>terms of use</a> 
+                    When you add the files, you accept the <a href='/termsOfUse'>terms of use</a> 
                 </p>
 
         </form>

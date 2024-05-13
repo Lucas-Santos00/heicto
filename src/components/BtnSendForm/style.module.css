@@ -1,0 +1,33 @@
+.btnSender{
+    transition: all 0.4s;
+    font-size: 32px;
+    background-color: #872BFC;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #f3f3f3;
+    cursor: pointer;
+    padding: 18px 76px;
+}
+
+.btnSender:hover{
+    transition: all 0.4s;
+    background-color: #f3f3f3;
+    color: #872BFC;
+    border-color: #872BFC;
+}
+
+#disableBtn{
+    background-color: #929292;
+    cursor:not-allowed;
+}
+
+#disableBtn:hover{
+    color: #f3f3f3;
+    border-color: #f3f3f3;
+}
+
+@media screen and (max-width: 500px) {
+    .btnSender{
+        font-size: 22px;
+    }
+}
