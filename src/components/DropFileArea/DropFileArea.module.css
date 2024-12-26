@@ -1,0 +1,14 @@
+.dropBoxContainer{
+    cursor: pointer;
+    border: 4px solid transparent;
+    border-image: url('/Rectangle\ 14.png') 5 stretch;
+    padding: 32px 88px;
+    color: #0C0C0C;
+    max-width: 210px;
+}
+
+@media (max-width: 924px) {
+    .dropBoxContainer{
+        max-width: 132px;
+    }
+}

@@ -1,0 +1,19 @@
+1 - Criar função de drag and drop
+
+2 - Atribuir arquvios ao componente de estado
+
+3 - Adiconar itens de background
+
+4 - Deixar responsívo
+
+5 - Criar funções de converter arquvios
+
+6 - Fazer validações, evitar erros
+
+7 - Fazer compactação de arquivos, caso for mais de 1 arquivos
+
+8 - Fazer download dos arquivos modificados
+
+9 - Fazer testes
+
+10 - Build e subir produção
