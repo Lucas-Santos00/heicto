@@ -1,0 +1,56 @@
+.boardConversorContainer{
+    border-radius: 11px;
+    overflow: hidden;
+    width: 500px;
+    color: #0C0C0C;
+}
+
+.boardBody{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    padding: 28px 32px;
+    background-color: #F7F7F7;
+}
+
+.boardBody p{
+    text-align: center;
+}
+
+.btnConverter{
+    color: #F3F3F3;
+    font-size: 32px;
+    padding: 16px 0;
+    border-radius: 6px;
+    border: none;
+    background-color: #872BFC;
+    margin: 32px 0;
+    width: 276px;
+}
+
+.paragrathCounter{
+    margin: 20px 0 0 0;
+    font-size: 32px;
+}
+
+.paragrathTermsOfUse{
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 924px){
+    .boardConversorContainer{
+        width: 380px;
+    }
+}
+
+@media (max-width: 430px){
+    .boardConversorContainer{
+        width: 340px;
+    }
+    .paragrathCounter{
+        white-space: nowrap;
+        font-size: 24px;
+    }
+}

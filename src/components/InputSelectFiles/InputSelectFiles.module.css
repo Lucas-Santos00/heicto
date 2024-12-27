@@ -1,0 +1,55 @@
+.contentContainer{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentContainer svg{
+    margin-right: 34px;
+    flex-shrink: 0;
+}
+
+.fileInput{
+    display: none;
+}
+
+.inputTextArea{
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0C0C0C;
+}
+
+.paragraph, .span{
+    padding: 0;
+    margin: 0;
+}
+
+.paragraph{
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.span{
+    font-size: 16px;
+}
+
+@media (max-width: 924px) {
+    .paragraph{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    .span{
+        font-size: 12px;
+    }
+    .contentContainer svg{
+        flex-shrink: 0;
+        width: auto;
+        height: auto; 
+        max-width: 48px;
+        max-height: 48px;
+    }
+}

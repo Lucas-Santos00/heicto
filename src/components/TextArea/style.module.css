@@ -1,0 +1,64 @@
+.textAreaContainer{
+    margin-left: 64px;
+}
+
+.text, .spanText{
+    color: #F7F7F7;
+    font-weight: 200;
+    margin: 0;
+    padding: 0;
+}
+
+.weightBold{
+    font-weight: 600;
+}
+
+.text{
+    font-size: 96px;
+    margin-bottom: 32px;
+}
+
+.spanText{
+    font-size: 1.8vw;
+}
+
+@media (max-width: 1200px) {
+    .text{
+        font-size: 62px;
+        margin-bottom: 24px;
+    }
+    .spanText{
+        font-size: 22px;
+    }
+}
+@media (max-width: 80px) {
+    .text{
+        font-size: 48px;
+        margin-bottom: 16px;
+        text-align: center;
+    }
+    .spanText{
+        display: block;
+        text-align: center;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 924px) {
+    .textAreaContainer{
+        margin-left: 0;
+        display: flex;
+        flex-direction: column;
+            align-items: center;
+            justify-content: center;
+    }
+    .text{
+        font-size: 52px;
+        text-align: center;
+    }
+
+    .spanText{
+        margin-bottom: 28px;
+    }
+
+}

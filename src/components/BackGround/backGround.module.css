@@ -1,0 +1,58 @@
+.centerDiv{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    display: flex;
+        align-items: center;
+        justify-content: center;
+}
+
+.backGroundContainer{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    max-width: 1920px;
+    height: 1080px;
+}
+
+.backGroundContainer div{
+    width: 14vw;
+}
+
+.backGround1{
+    position: absolute;
+    bottom: 9vh;
+    left: 4vw;
+}
+
+.backGround2{
+    position: absolute;
+    top: -10.74vh;
+    right: 8vw;
+}
+
+.backGround3{
+    position: absolute;
+    top: 25vh;
+    right: 41.8vw;
+}
+
+.backGround4{
+    position: absolute;
+    top: 57.59vh;
+    right: 30.83vw;
+}
+
+.backGround5{
+    position: absolute;
+    bottom: 1.48vh;
+    right: 0.83vw;
+}
+
+@media (max-width: 1200px){
+    .backGroundContainer{
+        display: none;
+    }
+}

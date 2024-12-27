@@ -1,0 +1,31 @@
+.popUpMain{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100svw;
+    height: 100svh;
+    position: absolute;
+    background-color: #0c0c0ca8;
+}
+
+.popUpShape{
+    position: relative;
+    background-color: #0C0C0C;
+    padding: 84px 72px;
+    border-radius: 10px;
+}
+
+.contentArea{
+    display: flex;
+}
+
+.contentArea svg{
+    margin-right: 42px;
+}
+
+.closeBtn{
+    cursor: pointer;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+}

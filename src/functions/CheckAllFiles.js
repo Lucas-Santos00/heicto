@@ -1,0 +1,55 @@
+// This files must be less than 350Mb (X)
+// Recive a Array of files (X)
+// Chekc if all files is .heic (X)
+// Less than 150 files (X)
+// Return True, if it's pass all testes (X)
+// Throw error if no pass (x)
+
+const CheckAllFilesType = (files) => {
+
+    let filesSize = 0
+
+   try{
+        if(!Array.isArray(files)){
+
+            throw new Error('It must be an Array');
+
+        }else if(files.length > 150){
+
+            throw new Error('Too many files - Max 150 files');
+
+        }
+
+        // Check if it's a .heic file and the total files size
+        files.forEach( file => {
+
+            const isHeic = file.name.slice(-4) == 'heic' ? true : false
+            filesSize += file.size
+
+            if(!isHeic){
+                
+                throw new Error(`The file ${file.name} is not a .heic file!`);
+
+            }
+
+            if(filesSize > 262144000){
+
+                throw new Error('File size too long - Max 250Mb');
+
+            }
+
+        })
+
+        if(files.length == 0){
+            return false
+        }
+   }catch(error){
+        console.log(error.message)
+        return false
+   }
+
+    return true
+
+}
+
+export default CheckAllFilesType;
