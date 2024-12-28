@@ -39,7 +39,7 @@ const BoardConversor = props =>{
                 </p>
 
                 <button 
-                    onClick={ _ => btnConvert() }
+                    onClick={props.isPreparetedToConvert ? () => btnConvert() : undefined}
                     style={props.filesQnt == 0 ? { backgroundColor: "#929292", cursor: "no-drop" } : {cursor: "pointer"}}
                     className={style.btnConverter}>
                     {props.filesQnt == 0 ? 'Select files' : 'Convert'}

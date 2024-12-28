@@ -21,11 +21,26 @@ export default function Home() {
 
   useEffect(() => { // OnChange files input
 
-    // Set new value of qntFilesSelected - This will be used to display the count on screen
-    setQntFilesSelected(files.length)
+    const isPrepared = check(files)
 
-    // Check files
-    setIsPreparetedToConvert(check(files))
+    // Check files - if ok set its prepared
+    if(isPrepared.result){
+
+      console.log(isPrepared.result)
+
+      setIsPreparetedToConvert(true)
+
+      // Set new value of qntFilesSelected - This will be used to display the count on screen
+      setQntFilesSelected(files.length)
+
+    }else if(isPrepared.message){
+      setPopUpObjectError({
+        showPopUp: true,
+        message: isPrepared.message
+      })
+    }
+
+    
 
   }, [files])
 
@@ -44,7 +59,7 @@ export default function Home() {
           passFunction={setTypeToConvert}
           passActualStatus={typeToConvert}
           filesQnt={qntFilesSelected}
-        
+          isPreparetedToConvert={isPreparetedToConvert}
         />
 
         <TextArea convertTo={typeToConvert} />

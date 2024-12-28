@@ -41,14 +41,13 @@ const CheckAllFilesType = (files) => {
         })
 
         if(files.length == 0){
-            return false
+            return {result: false}
         }
    }catch(error){
-        console.log(error.message)
-        return false
+        return {result: false, message: error.message }
    }
 
-    return true
+    return {result: true}
 
 }
 

@@ -22,7 +22,7 @@ const ErrorPopUp = ({ popUpObjectError, setPopUpObjectError }) =>{
 
                     <div className={style.textContainer}>
                         <strong>Opsss..</strong>
-                        <p>{popUpObjectError.errorMsg}</p>
+                        <p>{popUpObjectError.message}</p>
                     </div>
                 </div>
 
