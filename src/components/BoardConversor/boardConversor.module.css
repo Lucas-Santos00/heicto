@@ -39,6 +39,10 @@
     font-size: 16px;
 }
 
+.disable{
+    display: none;
+}
+
 @media (max-width: 924px){
     .boardConversorContainer{
         width: 380px;

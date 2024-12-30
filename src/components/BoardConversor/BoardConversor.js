@@ -4,15 +4,19 @@ import DropFileArea from '../DropFileArea/DropFileArea'
 import InputSelectFiles from '../InputSelectFiles/InputSelectFiles'
 import ConverBuffer from '@/functions/ConvertBuffer'
 import ZipFiles from '@/functions/zipFiles'
+import Loading from '../Loading/Loading'
 
 const BoardConversor = props =>{
 
     const btnConvert = async _ =>{
 
+        props.setOnload(true)
         const convertedFiles = await ConverBuffer(props.files, props.passActualStatus)
 
         if(convertedFiles.successfullyConvert){
             ZipFiles(convertedFiles.files)
+            props.setOnload(false)
+            props.setFilesFunction([])
         }
 
     }
@@ -23,10 +27,12 @@ const BoardConversor = props =>{
 
             <SelectToConvertType 
                 passFunction={props.passFunction} 
-                passActualStatus={props.passActualStatus} 
+                passActualStatus={props.p} 
             />
 
-            <div className={style.boardBody}>
+            {props.onload ? <Loading/> : ''}
+
+            <div className={props.onload ? style.disable : style.boardBody}>
 
                 <DropFileArea setFilesFunction={props.setFilesFunction}>
 
@@ -34,7 +40,7 @@ const BoardConversor = props =>{
 
                 </DropFileArea>
 
-                <p className={style.paragrathCounter}>
+                <p className={props.onload ? style.disable : style.paragrathCounter}>
                     {props.filesQnt == 0 ? 'No files selected yet' : `${props.filesQnt} Files selected`}
                 </p>
 

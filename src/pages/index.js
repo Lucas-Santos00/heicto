@@ -15,9 +15,9 @@ export default function Home() {
   const [files, setFiles] = useState([]) // Files on input
   const [isPreparetedToConvert, setIsPreparetedToConvert] = useState(false) //Set if it's prepareted to check
   const [qntFilesSelected, setQntFilesSelected] = useState(files.length); // How many files were selected
-  const [popUpObjectError, setPopUpObjectError] = useState({
-    showPopUp: false
-  })
+  const [popUpObjectError, setPopUpObjectError] = useState({showPopUp: false}) // If true, it shows popUp error
+  const [onload, setOnload] = useState(false)
+  const [qntFilesConverted, setQntFilesConverted] = useState(0)
 
   useEffect(() => { // OnChange files input
 
@@ -25,9 +25,7 @@ export default function Home() {
 
     // Check files - if ok set its prepared
     if(isPrepared.result){
-
-      console.log(isPrepared.result)
-
+      
       setIsPreparetedToConvert(true)
 
       // Set new value of qntFilesSelected - This will be used to display the count on screen
@@ -53,13 +51,15 @@ export default function Home() {
 
       <div className='ConversorAreaContainer'>
 
-        <BoardConversor 
+        <BoardConversor
           setFilesFunction={setFiles}
           files={files}
           passFunction={setTypeToConvert}
           passActualStatus={typeToConvert}
           filesQnt={qntFilesSelected}
           isPreparetedToConvert={isPreparetedToConvert}
+          onload={onload}
+          setOnload={setOnload}
         />
 
         <TextArea convertTo={typeToConvert} />

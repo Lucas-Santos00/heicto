@@ -29,3 +29,24 @@
     top: 24px;
     right: 24px;
 }
+
+@media (max-width: 660px) {
+    .contentArea svg{
+        margin: 0;
+    }
+
+    .contentArea{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .textContainer{
+        text-align: center;
+    }
+
+    .textContainer strong{
+        display: block;
+        margin: 22px 0;
+    }
+}

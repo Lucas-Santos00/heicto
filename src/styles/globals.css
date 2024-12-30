@@ -9,6 +9,7 @@ button,hr,input{overflow:visible}progress,sub,sup{vertical-align:baseline}[type=
 
 /* DEFAULT */
 body{
+  overflow-x: hidden;
   background-color: #0C0C0C;
   color: #f7f7f7;
 }
