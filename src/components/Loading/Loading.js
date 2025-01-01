@@ -10,7 +10,7 @@ const Loading = ({ popUpObjectError, setPopUpObjectError }) =>{
 
             <div className={style.ldsRoller}><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
-            <p>Dependendo do seu computador e da quantidade de arquivos, isso pode demorar um pouco.</p>
+            <p>Depending on your computer and the number of files, this may take a while.</p>
         </div>
 
     )

@@ -17,11 +17,19 @@ export default function Home() {
   const [qntFilesSelected, setQntFilesSelected] = useState(files.length); // How many files were selected
   const [popUpObjectError, setPopUpObjectError] = useState({showPopUp: false}) // If true, it shows popUp error
   const [onload, setOnload] = useState(false)
-  const [qntFilesConverted, setQntFilesConverted] = useState(0)
+
+  const closePopUp = _ =>{
+    setFiles([]);
+    setIsPreparetedToConvert(false);
+    setPopUpObjectError({ showPopUp: false });
+    setQntFilesSelected(0);
+    setFilesKey(prevKey => prevKey + 1);
+  }
 
   useEffect(() => { // OnChange files input
 
     const isPrepared = check(files)
+    console.log(isPrepared)
 
     // Check files - if ok set its prepared
     if(isPrepared.result){
@@ -38,8 +46,6 @@ export default function Home() {
       })
     }
 
-    
-
   }, [files])
 
   return (
@@ -47,7 +53,7 @@ export default function Home() {
     
       <BackGround />
 
-      {popUpObjectError.showPopUp ? <ErrorPopUp setPopUpObjectError={setPopUpObjectError}  popUpObjectError={popUpObjectError}/> : ''}
+      {popUpObjectError.showPopUp ? <ErrorPopUp closePopUp={closePopUp} setPopUpObjectError={setPopUpObjectError}  popUpObjectError={popUpObjectError}/> : ''}
 
       <div className='ConversorAreaContainer'>
 

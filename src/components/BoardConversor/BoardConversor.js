@@ -27,7 +27,7 @@ const BoardConversor = props =>{
 
             <SelectToConvertType 
                 passFunction={props.passFunction} 
-                passActualStatus={props.p} 
+                passActualStatus={props.passActualStatus} 
             />
 
             {props.onload ? <Loading/> : ''}
@@ -52,7 +52,7 @@ const BoardConversor = props =>{
                 </button>
 
                 <p className={style.paragrathTermsOfUse}>
-                    When you add the files, you accept the terms of use
+                    When you add the files, you accept the <a href='./termOfUse'>terms of use</a>
                 </p>
 
             </div>

@@ -5,6 +5,8 @@
 // Return True, if it's pass all testes (X)
 // Throw error if no pass (x)
 
+import { file } from "jszip";
+
 const CheckAllFilesType = (files) => {
 
     let filesSize = 0
@@ -27,8 +29,8 @@ const CheckAllFilesType = (files) => {
             filesSize += file.size
 
             if(!isHeic){
-                
-                throw new Error(`The file ${file.name} is not a .heic file!`);
+                const fileName = file.name.length > 22 ? file.name.slice(0, 16) + '...' : file.name;
+                throw new Error(`The file ${fileName} is not a .heic file!`);
 
             }
 
@@ -44,7 +46,7 @@ const CheckAllFilesType = (files) => {
             return {result: false}
         }
    }catch(error){
-        return {result: false, message: error.message }
+        return {result: false, message: error.message}
    }
 
     return {result: true}

@@ -1,0 +1,19 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text{
+    text-align: center;
+    width: 80vw;
+    min-width: 320px;
+}
+
+.line{
+    border: none;           /* Remove a borda padrão */
+    border-top: 0.3px solid #373738; /* Adiciona uma borda superior */
+    margin: 32px 0;
+    width: 80vw;
+}
