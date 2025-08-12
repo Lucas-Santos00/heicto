@@ -1,15 +1,15 @@
-const convert = require('heic-convert/browser');
+const convert = require("heic-convert/browser");
 
 const ConvertBuffer = async (files, typeToConvert) => {
-
   // Verifica se é PNG, caso for qualquer outro tipo (caso der erro ou alguem burlar) ele altera para JPEG
-  if(typeToConvert != 'PNG'){
-    typeToConvert = 'JPEG'
+  if (typeToConvert != "PNG") {
+    typeToConvert = "JPEG";
   }
 
   // Converte todos os arquivos simultaneamente
   const convertedFiles = await Promise.all(
     Object.values(files).map(async (value) => {
+      const fileName = value.name.toLowerCase();
       // Converte o buffer do arquivo
       const fileBuffer = await value.arrayBuffer();
       const uint8Array = new Uint8Array(fileBuffer);
@@ -19,16 +19,18 @@ const ConvertBuffer = async (files, typeToConvert) => {
       });
 
       // Cria o arquivo a partir do buffer convertido
-      return new File([outputBuffer], value.name.replace('.heic', `.${typeToConvert}`), {
-        type: `image/${typeToConvert}`,
-      });
-    })
+      return new File(
+        [outputBuffer],
+        fileName.replace(".heic", `.${typeToConvert}`),
+        {
+          type: `image/${typeToConvert}`,
+        },
+      );
+    }),
   );
 
   // Objeto de retorno
   const ObjReturn = { successfullyConvert: true, files: convertedFiles };
-
-  console.log(ObjReturn);
 
   return ObjReturn;
 };
